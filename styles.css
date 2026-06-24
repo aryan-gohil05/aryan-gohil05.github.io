@@ -1,3 +1,9 @@
+:root {
+    --bg-colour: #EDE1FF;
+    --primary-text-colour: #4a4540;
+    --border-colour: #b18de8;
+}
+
 *, *::before, *::after {
    box-sizing: border-box;
    margin: 0;
@@ -6,8 +12,8 @@
 
 
 body {
-   background-color: #EDE1FF;
-   color: #2B2B2B;
+   background-color: var(--bg-colour);
+   color: var(--primary-text-colour);
    font-family: Georgia, 'Times New Roman', serif;
    min-height: 100vh;
    display: flex;
@@ -25,7 +31,7 @@ header {
    justify-content: space-between;
    align-items: baseline;
    padding-bottom: 1rem;
-   border-bottom: 1px solid #b18de8;
+   border-bottom: 1px solid var(--border-colour);
 }
 
 
@@ -35,5 +41,18 @@ header {
    letter-spacing: 0.18em;
    text-transform: uppercase;
    font-family: 'Helvetica Neue', Arial, sans-serif;
-   color: #4a4540;
+   color: var(--primary-text-colour);
+}
+
+/* Footer CSS code */
+footer {
+   margin-top: auto;
+   padding: 1.5rem 2.5rem;
+   border-top: 1px solid var(--border-colour);
+   font-size: 0.65rem;
+   letter-spacing: 0.15em;
+   text-transform: uppercase;
+   font-family: 'Helvetica Neue', Arial, sans-serif;
+   color: var(--primary-text-colour);
+   text-align: center;
 }
