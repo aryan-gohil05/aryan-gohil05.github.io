@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 :root {
     --bg-colour: #EDE1FF;
     --primary-text-colour: #4a4540;
     --border-colour: #b18de8;
+    --card-fill-colour: #E0D4FA;
+    --title-colour: rgb(29, 27, 27);
+    --handle-colour: #626262;
 }
 
 *, *::before, *::after {
@@ -47,7 +52,7 @@ header {
 
 /* Main content */
 main {
-   padding: 1.5rem 2.5rem;
+   padding: 0rem 2.5rem 1.5rem;
    display: flex;
    flex-direction: column;
    gap: 0.75rem;
@@ -61,14 +66,21 @@ main {
    gap: 0.75rem;
 }
 
+.card-filled {
+   background-color: var(--card-fill-colour);
+}
+
 .about-name {
    font-size: 1.8rem;
    font-weight: normal;
+   font-family: 'Inter', sans-serif;
+   color: var(--title-colour);
 }
 
 .about-desc {
    font-size: 0.9rem;
-   opacity: 0.7;
+   font-family: 'Inter', sans-serif;
+   color: var(--handle-colour);
 }
 
 /* Reading list code */
