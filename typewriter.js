@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const taglineEl = document.getElementById('footer-tagline');
 
-    type(nameEl, nameText, 100, () => {
+    type(nameEl, nameText, 80, () => {
         setTimeout(() => type(locationEl, locationText, 80, () => {
             if (!taglineEl) return;
             setTimeout(() => type(taglineEl, 'A lot of me and a bit of Claude made this website', 40), 400);
