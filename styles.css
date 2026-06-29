@@ -7,6 +7,7 @@
     --card-fill-colour: #E0D4FA;
     --title-colour: rgb(29, 27, 27);
     --handle-colour: #626262;
+    --max-width: 1100px;
 }
 
 *, *::before, *::after {
@@ -40,6 +41,10 @@ body {
 
 header {
    padding: 1.5rem 1.5rem;
+   max-width: var(--max-width);
+   margin-left: auto;
+   margin-right: auto;
+   width: 100%;
 }
 
 
@@ -67,6 +72,10 @@ main {
    display: flex;
    flex-direction: column;
    gap: 0.75rem;
+   max-width: var(--max-width);
+   margin-left: auto;
+   margin-right: auto;
+   width: 100%;
 }
 
 .card {
@@ -229,6 +238,10 @@ main {
 footer {
    margin-top: auto;
    padding: 0 1.5rem 1.5rem;
+   max-width: var(--max-width);
+   margin-left: auto;
+   margin-right: auto;
+   width: 100%;
    font-size: 0.65rem;
    letter-spacing: 0.15em;
    text-transform: uppercase;
@@ -243,4 +256,338 @@ footer::before {
    display: block;
    border-top: 1px solid var(--border-colour);
    margin-bottom: 1.5rem;
+}
+
+/* ── Worth Your Time page ── */
+
+.wyt-desktop-header { display: none; }
+
+.wyt-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    display: flex;
+    gap: 6px;
+    padding: 10px 12px;
+    background: var(--bg-colour);
+    border-bottom: 1px solid var(--border-colour);
+}
+
+.wyt-nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-colour);
+    background: var(--card-fill-colour);
+    color: var(--primary-text-colour);
+    border-radius: 4px;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    padding: 5px 4px;
+    line-height: 1.2;
+    min-height: 40px;
+    flex: 1;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.wyt-nav-icon { font-size: 0.85rem; margin-bottom: 2px; display: block; }
+
+.wyt-nav-section {
+    flex: 1.5;
+    font-weight: 700;
+    font-size: 0.6rem;
+    background: var(--border-colour);
+    color: var(--title-colour);
+    border: 1px solid #7c3aed;
+}
+
+#wyt-main { padding-top: 62px; }
+
+.wyt-section { padding: 1rem 1.5rem 1.5rem; }
+
+.wyt-section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--handle-colour);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.wyt-cover-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.wyt-card-grid { display: none; }
+
+.wyt-cover-item {
+    aspect-ratio: 2 / 3;
+    border: 1px solid var(--border-colour);
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.12);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.wyt-cover-item:hover { transform: translateY(-3px); box-shadow: 2px 6px 16px rgba(0,0,0,0.2); }
+
+.wyt-cover-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.wyt-cover-fallback {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #5b21b6, #a855f7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: 0.55rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.wyt-detail {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: var(--bg-colour);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition: transform 0.25s ease;
+}
+
+.wyt-detail--open { transform: translateY(0); }
+
+.wyt-detail-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-colour);
+    flex-shrink: 0;
+}
+
+.wyt-detail-close {
+    width: 36px; height: 36px;
+    border: 1px solid var(--border-colour);
+    background: var(--card-fill-colour);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--primary-text-colour);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.wyt-detail-label {
+    flex: 1;
+    text-align: center;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--handle-colour);
+    padding-right: 36px;
+}
+
+.wyt-detail-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.wyt-detail-cover {
+    width: 110px;
+    height: 163px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 3px 4px 14px rgba(0,0,0,0.2);
+    align-self: center;
+    flex-shrink: 0;
+}
+
+.wyt-detail-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--title-colour);
+    text-align: center;
+    line-height: 1.25;
+}
+
+.wyt-detail-author {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--handle-colour);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    text-align: center;
+    margin-top: -0.4rem;
+}
+
+.wyt-detail-divider { border: none; border-top: 1px solid var(--border-colour); }
+
+.wyt-detail-review-label {
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--handle-colour);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.wyt-detail-review {
+    font-size: 0.88rem;
+    color: var(--primary-text-colour);
+    line-height: 1.65;
+}
+
+.wyt-detail-buy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #4a1fa8;
+    color: white;
+    padding: 0.85rem 1rem;
+    text-decoration: none;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin-top: auto;
+    transition: background 0.12s;
+}
+
+.wyt-detail-buy:hover { background: #3b1790; }
+
+@media (min-width: 768px) {
+    .wyt-nav { display: none; }
+    .wyt-desktop-header { display: block; }
+    .wyt-cover-grid { display: none; }
+    .wyt-detail { display: none; }
+    #wyt-main { padding-top: 0; }
+
+    .wyt-card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+
+    .wyt-card {
+        border: 1px solid var(--border-colour);
+        background: var(--card-fill-colour);
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.15s, border-color 0.15s;
+    }
+
+    .wyt-card:hover { transform: translateY(-3px); border-color: #1a1a1a; }
+    .wyt-card:hover .wyt-card-overlay { opacity: 1; }
+
+    .wyt-card-cover {
+        width: 52px; height: 76px;
+        object-fit: cover;
+        border-radius: 2px;
+        box-shadow: 1px 2px 6px rgba(0,0,0,0.15);
+        flex-shrink: 0;
+    }
+
+    .wyt-card-cover-fallback {
+        width: 52px; height: 76px;
+        border-radius: 2px;
+        background: linear-gradient(160deg, #5b21b6, #a855f7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.5rem;
+        font-weight: 700;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 4px;
+        line-height: 1.3;
+        flex-shrink: 0;
+    }
+
+    .wyt-card-title {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--title-colour);
+        line-height: 1.25;
+    }
+
+    .wyt-card-author {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--handle-colour);
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .wyt-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: #4a1fa8;
+        opacity: 0;
+        transition: opacity 0.2s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 1.25rem;
+        gap: 0.4rem;
+    }
+
+    .wyt-card-overlay-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: white;
+        line-height: 1.25;
+    }
+
+    .wyt-card-overlay-author {
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(255,255,255,0.7);
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .wyt-card-buy-btn {
+        margin-top: 0.5rem;
+        border: 1px solid white;
+        background: transparent;
+        color: white;
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        padding: 0.4rem 0.75rem;
+        display: inline-block;
+        transition: background 0.12s, color 0.12s;
+    }
+
+    .wyt-card-buy-btn:hover { background: white; color: #4a1fa8; }
 }
