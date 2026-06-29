@@ -80,10 +80,18 @@ function renderBooks() {
         cardAuthor.textContent = book.author;
         const overlay = document.createElement('div');
         overlay.className = 'wyt-card-overlay';
-        overlay.innerHTML =
-            '<div class="wyt-card-overlay-title">' + book.title + '</div>' +
-            '<div class="wyt-card-overlay-author">' + book.author + '</div>' +
-            '<span class="wyt-card-buy-btn">Go buy it →</span>';
+        const overlayTitle = document.createElement('div');
+        overlayTitle.className = 'wyt-card-overlay-title';
+        overlayTitle.textContent = book.title;
+        const overlayAuthor = document.createElement('div');
+        overlayAuthor.className = 'wyt-card-overlay-author';
+        overlayAuthor.textContent = book.author;
+        const overlayBtn = document.createElement('span');
+        overlayBtn.className = 'wyt-card-buy-btn';
+        overlayBtn.textContent = 'Go buy it →';
+        overlay.appendChild(overlayTitle);
+        overlay.appendChild(overlayAuthor);
+        overlay.appendChild(overlayBtn);
         card.appendChild(cardImg);
         card.appendChild(cardFallback);
         card.appendChild(cardTitle);
@@ -149,7 +157,7 @@ function setupSectionObserver() {
                 label.textContent = entry.target.dataset.label;
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0, rootMargin: '0px 0px -60% 0px' });
     sections.forEach(function(s) { observer.observe(s); });
 }
 
