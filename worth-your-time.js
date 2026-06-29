@@ -5,27 +5,6 @@ const BOOKS = [
         cover: "/images/fastlane_cover.jpg",
         review: "Changed how I think about wealth, time, and the systems we're sold by default. Blunt, occasionally abrasive, and genuinely useful if you're willing to question the standard playbook.",
         buyUrl: "https://www.amazon.co.uk/Millionaire-Fastlane-Crack-Wealth-Lifetime/dp/0984358102"
-    },
-    {
-        title: "Atomic Habits",
-        author: "James Clear",
-        cover: "/images/books/atomic-habits.jpg",
-        review: "The best practical guide to building habits that actually stick. Dense with frameworks you'll use immediately.",
-        buyUrl: "https://www.amazon.co.uk/Atomic-Habits-Proven-Build-Break/dp/1847941834"
-    },
-    {
-        title: "Deep Work",
-        author: "Cal Newport",
-        cover: "/images/books/deep-work.jpg",
-        review: "A convincing argument for why distraction is eroding your output — and what to do about it.",
-        buyUrl: "https://www.amazon.co.uk/Deep-Work-Focused-Success-Distracted/dp/0349411905"
-    },
-    {
-        title: "Zero to One",
-        author: "Peter Thiel",
-        cover: "/images/books/zero-to-one.jpg",
-        review: "Short and contrarian. Forces you to ask whether you're building something new or just copying what already exists.",
-        buyUrl: "https://www.amazon.co.uk/Zero-One-Notes-Startups-Future/dp/0753555190"
     }
 ];
 
@@ -133,23 +112,6 @@ function closeDetail() {
     window.scrollTo(0, savedScrollY);
 }
 
-function setupShare() {
-    var btn = document.getElementById('wyt-share-btn');
-    if (!btn) return;
-    btn.addEventListener('click', function() {
-        var label = btn.querySelector('.wyt-share-label');
-        var data = { title: document.title, url: window.location.href };
-        if (navigator.share) {
-            navigator.share(data).catch(function() {});
-        } else {
-            navigator.clipboard.writeText(data.url).then(function() {
-                label.textContent = 'Copied!';
-                setTimeout(function() { label.textContent = 'Share'; }, 1500);
-            }).catch(function() {});
-        }
-    });
-}
-
 function setupSectionObserver() {
     var label = document.getElementById('wyt-section-label');
     if (!label) return;
@@ -166,7 +128,6 @@ function setupSectionObserver() {
 
 document.addEventListener('DOMContentLoaded', function() {
     renderBooks();
-    setupShare();
     setupSectionObserver();
     var closeBtn = document.getElementById('wyt-detail-close');
     if (closeBtn) closeBtn.addEventListener('click', closeDetail);
