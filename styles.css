@@ -461,6 +461,10 @@ footer::before {
     font-size: 0.88rem;
     color: var(--primary-text-colour);
     line-height: 1.65;
+    margin: 0;
+}
+.wyt-detail-review + .wyt-detail-review {
+    margin-top: 0.75rem;
 }
 
 .wyt-detail-buy {
@@ -555,11 +559,10 @@ footer::before {
         font-size: 0.78rem;
         color: var(--handle-colour);
         line-height: 1.5;
-        margin-top: 0.25rem;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        margin: 0.35rem 0 0;
+    }
+    .wyt-card-review + .wyt-card-review {
+        margin-top: 0.5rem;
     }
 
     .wyt-card-overlay {
