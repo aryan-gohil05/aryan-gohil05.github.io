@@ -236,8 +236,6 @@ main {
 .card-md { padding: 1.5rem 2rem; }
 .card-lg { padding: 2rem 2rem; }
 
-/* Reading list code */
-
 /* Footer code */
 footer {
    margin-top: auto;
@@ -263,8 +261,6 @@ footer::before {
 }
 
 /* ── Worth Your Time page ── */
-
-.wyt-desktop-header { display: none; }
 
 .wyt-nav {
     position: fixed;
