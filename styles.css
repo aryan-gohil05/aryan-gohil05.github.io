@@ -12,6 +12,7 @@
     --accent-colour-dark: #3b1790;
     --accent-border-colour: #7c3aed;
     --accent-gradient: linear-gradient(160deg, #5b21b6, #a855f7);
+    --title_font_size: 1.6rem;
 }
 
 *, *::before, *::after {
@@ -95,7 +96,7 @@ main {
 }
 
 .about-name {
-   font-size: 1.6rem;
+   font-size: var(--title_font_size);
    font-weight: 500;
    font-family: 'Inter', sans-serif;
    color: var(--title-colour);
@@ -175,14 +176,14 @@ main {
 }
 
 .project-title {
-   font-size: 1.6rem;
+   font-size: var(--title_font_size);
    font-weight: 500;
    font-family: 'Inter', sans-serif;
    color: var(--title-colour);
 }
 
 .project-desc {
-   font-size: 0.9rem;
+   font-size: 0.8rem;
    font-family: 'Inter', sans-serif;
    color: var(--handle-colour);
    margin-top: 0.2rem;
@@ -201,8 +202,8 @@ main {
 .card-wide { flex: 2 !important; }
 
 .thoughts-card-img {
-   width: 28px;
-   height: 28px;
+   width: 1.5rem;
+   height: 1.5rem;
    flex-shrink: 0;
    color: var(--title-colour);
 }
@@ -212,13 +213,6 @@ main {
    height: 100%;
 }
 
-.social-logo {
-   width: 1.5rem;
-   height: 1.5rem;
-   object-fit: contain;
-   flex-shrink: 0;
-}
-
 .social-top {
    display: flex;
    justify-content: space-between;
@@ -226,8 +220,8 @@ main {
 }
 
 .social-icon {
-   width: 1.5rem;
-   height: 1.5rem;
+   width: 2rem;
+   height: 2rem;
    object-fit: contain;
 }
 
